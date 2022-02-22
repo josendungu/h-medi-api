@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/doctors/specialist/{specialist_id}', [DoctorController::class, 'doctorsBySpecialty']);
 Route::get('/appointments/patient/{patient_id}', [AppointmentController::class, 'patientAppointments']);
+Route::post('/login', [PatientController::class, 'loginPatient']);
 
 Route::resource('appointments', AppointmentController::class);
 Route::resource('patients', PatientController::class);
