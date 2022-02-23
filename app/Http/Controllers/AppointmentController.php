@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Doctor;
+use App\Models\Specialist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -44,11 +45,14 @@ class AppointmentController extends Controller
         $appointment = Appointment::find($id);
         $doctor = Doctor::find($appointment->doctor_id);
 
+        $specialaist = Specialist::find($doctor->specialist_id);
+
         $appointment_detail = array(
             'date' => $appointment->date,
             'time' => $appointment->time,
             'doctor' => $doctor,
-            'id' => $appointment->id
+            'id' => $appointment->id,
+            'specialist' => $specialaist->specialist_name
         );
 
         return $appointment_detail;
@@ -71,12 +75,14 @@ class AppointmentController extends Controller
         foreach($appointments as $appointment) {
 
             $doctor = Doctor::find($appointment->doctor_id);
+            $specialaist = Specialist::find($doctor->specialist_id);
 
             $appointment_detail = array(
                 'date' => $appointment->date,
                 'time' => $appointment->time,
                 'doctor' => $doctor,
-                'id' => $appointment->id
+                'id' => $appointment->id,
+                'specialist' => $specialaist->specialist_name
             );
 
             array_push($appointments_details, $appointment_detail);
