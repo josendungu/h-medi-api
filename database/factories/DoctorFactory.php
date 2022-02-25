@@ -15,12 +15,11 @@ class DoctorFactory extends Factory
     {
 
         $gender = $this->faker->randomElement(['male', 'female']);
-        $filePath = storage_path('doctor-images');
         $doctor_url = '';
 
         if ($gender == 'male'){
             $number = $this->faker->numberBetween(2,4);
-            $doctor_url = 'doctor'.$number.'png';
+            $doctor_url = 'doctor'.$number.'.png';
         } else {
             $doctor_url = 'doctor1.png';
         }

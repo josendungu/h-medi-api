@@ -41,8 +41,19 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        if ($request->has('password')) {
+           
+            $password = $request->input('password');
+            $hashed_password = Hash::make($password);
+
+            $request->merge(['password' => $hashed_password]);
+        }
+
         $patient = Patient::find($id);
-        return $patient->update($request->all());
+        $patient->update($request->all());
+
+        return $patient;
     }
 
 

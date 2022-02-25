@@ -22,12 +22,28 @@ class AppointmentController extends Controller
 
         $appointment = Appointment::create($request->all());
         $doctor = Doctor::find($appointment->doctor_id);
+        $specialaist = Specialist::find($doctor->specialist_id);
+
+        $doctor_detail = array(
+            "about" => $doctor->about,
+            "id" => $doctor->id,
+            "first_name" => $doctor->first_name,
+            "last_name" => $doctor->last_name,
+            "email" => $doctor->email,
+            "phone_number" => $doctor->phone_number,
+            "image_url" => $doctor->image_url,
+            "specialist" => $specialaist,
+            "rating" => $doctor->rating,
+            "gender" => $doctor->gender
+
+        );
 
         $appointment_detail = array(
             'date' => $appointment->date,
             'time' => $appointment->time,
-            'doctor' => $doctor,
-            'id' => $appointment->id
+            'doctor' => $doctor_detail,
+            'id' => $appointment->id,
+            'specialist' => $specialaist->specialist_name
         );
 
         return $appointment_detail;
@@ -47,10 +63,24 @@ class AppointmentController extends Controller
 
         $specialaist = Specialist::find($doctor->specialist_id);
 
+        $doctor_detail = array(
+            "about" => $doctor->about,
+            "id" => $doctor->id,
+            "first_name" => $doctor->first_name,
+            "last_name" => $doctor->last_name,
+            "email" => $doctor->email,
+            "phone_number" => $doctor->phone_number,
+            "image_url" => $doctor->image_url,
+            "specialist" => $specialaist,
+            "rating" => $doctor->rating,
+            "gender" => $doctor->gender
+
+        );
+
         $appointment_detail = array(
             'date' => $appointment->date,
             'time' => $appointment->time,
-            'doctor' => $doctor,
+            'doctor' => $doctor_detail,
             'id' => $appointment->id,
             'specialist' => $specialaist->specialist_name
         );
@@ -77,10 +107,23 @@ class AppointmentController extends Controller
             $doctor = Doctor::find($appointment->doctor_id);
             $specialaist = Specialist::find($doctor->specialist_id);
 
+            $doctor_detail = array(
+                "about" => $doctor->about,
+                "id" => $doctor->id,
+                "first_name" => $doctor->first_name,
+                "last_name" => $doctor->last_name,
+                "email" => $doctor->email,
+                "phone_number" => $doctor->phone_number,
+                "image_url" => $doctor->image_url,
+                "specialist" => $specialaist,
+                "rating" => $doctor->rating,
+                "gender" => $doctor->gender
+            );
+
             $appointment_detail = array(
                 'date' => $appointment->date,
                 'time' => $appointment->time,
-                'doctor' => $doctor,
+                'doctor' => $doctor_detail,
                 'id' => $appointment->id,
                 'specialist' => $specialaist->specialist_name
             );
