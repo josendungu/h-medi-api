@@ -98,7 +98,7 @@ class AppointmentController extends Controller
      */
     public function patientAppointments($patient_id)
     {
-        $appointments = DB::table('appointments')->where('patient_id', '=', $patient_id)->where('date', '>=' , strtotime(date("Y/m/d")))->get();
+        $appointments = DB::table('appointments')->where('patient_id', '=', $patient_id)->where('date', '<=' , strtotime(date("Y/m/d")))->get();
 
         $appointments_details = array();
 

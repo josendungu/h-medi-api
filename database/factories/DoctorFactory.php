@@ -18,10 +18,11 @@ class DoctorFactory extends Factory
         $doctor_url = '';
 
         if ($gender == 'male'){
-            $number = $this->faker->numberBetween(2,4);
+            $number = $this->faker->numberBetween(20,27);
             $doctor_url = 'doctor'.$number.'.png';
         } else {
-            $doctor_url = 'doctor1.png';
+            $number = $this->faker->numberBetween(1,7);
+            $doctor_url = 'doctor'.$number.'.png';
         }
 
         return [

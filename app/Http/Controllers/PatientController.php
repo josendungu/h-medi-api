@@ -56,7 +56,7 @@ class PatientController extends Controller
         return $patient;
     }
 
-
+    
     /**
      * Update the specified resource in storage.
      *

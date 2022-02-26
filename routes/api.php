@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SpecialistController;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ Route::resource('appointments', AppointmentController::class);
 Route::resource('patients', PatientController::class);
 Route::resource('specialists', SpecialistController::class);
 Route::resource('doctors', DoctorController::class);
+Route::resource('emergencies', EmergencyController::class);
 
 
 
