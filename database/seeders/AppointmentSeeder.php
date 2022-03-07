@@ -17,22 +17,22 @@ class AppointmentSeeder extends Seeder
         DB::table('appointments')->insert([
 
             [
-                'patient_id' => 3,
+                'patient_id' => 6,
                 'doctor_id' => 6,
                 'time'  => '7:30',
-                'date' => strtotime('2022-03-03')
+                'date' => 19086
             ],
             [
-                'patient_id' => 3,
+                'patient_id' => 6,
                 'doctor_id' => 7,
                 'time'  => '7:30',
-                'date' => strtotime('2022-01-03')
+                'date' => 19086
             ],
             [
-                'patient_id' => 3,
+                'patient_id' => 6,
                 'doctor_id' => 7,
                 'time'  => '7:30',
-                'date' => strtotime('2022-03-03')
+                'date' => 19086
             ]
 
 
